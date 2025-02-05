@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <algorithm>
-# include <vector>
+#include <set>
 # include <iterator>
 # include <limits.h>
 
@@ -11,14 +11,14 @@ class Span {
 
     private:
         unsigned int        _maxSize;
-        std::vector<int>    _vec;
+        std::set<int>       _vec;
     
     public:
         Span();
         Span(unsigned int N);
         Span(const Span& copy);
 
-        Span& operator=(const Span& copy);
+        Span& operator=(Span& copy);
 
         class MaxNumber : public std::exception {
             public:
@@ -31,6 +31,7 @@ class Span {
         };
 
         void addNumber(int i);
+        void fullStack();
         int shortestSpan() const;
         int longestSpan() const;
 
